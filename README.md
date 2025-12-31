@@ -1,21 +1,21 @@
 -- Installation instructions for the project:
 
-//1. Open cmd and type the following commands:
+1. Open cmd and type the following commands:
 
 git clone https://github.com/luminitas/CypressProjectLuminitaSocaciu.git
 cd CypressProjectLuminitaSocaciu
 
-//install dependencies
+2. Install dependencies
 
 npm install
 // or
 yarn install
 
-//2. How to run the tests in Cypress framework
+3. How to run the tests in Cypress framework
 
 npx cypress open
 
-//3. Run the tests
+4. Run the tests
 
 npx cypress run
 
@@ -40,5 +40,5 @@ npx cypress run --browser edge
  The folders of the project is divided as follows:
  
 - cypress/e2e/: it contains test specifications. Each file contains a separate feature or user flow
-cypress/fixtures/: the folder contains static data (.json) for data-driven testing
-cypress/page-objects/: the folder contains the Page Object Model implementation. Each file represents a "page" / a major component of the application, containing selectors and methods for interacting with it. This separates UI logic from test logic.
+- cypress/fixtures/: the folder contains static data (.json) for data-driven testing
+- cypress/page-objects/: the folder contains the Page Object Model implementation. Each file represents a "page" / a major component of the application, containing selectors and methods for interacting with it. This separates UI logic from test logic.
