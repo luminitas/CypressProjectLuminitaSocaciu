@@ -1,0 +1,12 @@
+
+  {
+	"ourActivityInNumbers": {  
+    "expectedText": "17+ Years",
+    "expectedLabel": "class",
+    "expectedStyles": {
+      "color": "rgb(255, 255, 255, 0.8)",
+      "font-size": "40px",
+      "text-align": "left"
+	}
+    }
+  }

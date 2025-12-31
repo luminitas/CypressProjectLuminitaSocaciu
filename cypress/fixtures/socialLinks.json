@@ -1,0 +1,22 @@
+[
+    {
+      "platform": "Facebook",
+      "selector": "body > div.load-second > div.footer > div > div.div-block-59 > div.div-block-60 > a:nth-child(1)",
+      "expectedHrefContains": "facebook.com/AirportLabs",
+      "expectedDomainContains": "facebook.com"
+    },
+    {
+      "platform": "Instagram",
+      "selector": "body > div.load-second > div.footer > div > div.div-block-59 > div.div-block-60 > a:nth-child(2)",
+      "expectedHrefContains": "instagram.com/airportlabspeople/",
+      "expectedDomainContains": "instagram.com"
+    },
+    {
+      "platform": "LinkedIn",
+      "selector": "body > div.load-second > div.footer > div > div.div-block-59 > div.div-block-60 > a:nth-child(3)",
+      "expectedHrefContains": "linkedin.com/company/airportlabs/",
+      "expectedDomainContains": "linkedin.com"
+    }
+  ]
+  
+  
