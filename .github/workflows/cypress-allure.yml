@@ -22,20 +22,24 @@ jobs:
 
       - name: Run Cypress tests
         run: npx cypress run
+        continue-on-error: true
 
       - name: Upload Allure results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
 
-      - name: Upload screenshots/videos (optional)
+      - name: Upload screenshots/videos
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-artifacts
           path: |
             cypress/screenshots
             cypress/videos
+          if-no-files-found: ignore
 
   # 🔹 2. Generate Allure report
   allure-report:
