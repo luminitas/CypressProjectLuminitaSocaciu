@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: cypress/browsers:node-20.11.0-chrome-120-ff-120
+      image: cypress/browsers:node-24.14.1-chrome-146.0.7680.177-1-ff-149.0.2-edge-146.0.3856.97-1
 
     steps:
       - name: Checkout repo
