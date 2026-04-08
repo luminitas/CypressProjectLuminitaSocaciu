@@ -47,7 +47,7 @@ jobs:
     needs: cypress-run
 
     container:
-      image: openjdk:17-jdk-slim
+      image: alpine:3.20
 
     steps:
       - name: Checkout repo
