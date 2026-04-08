@@ -1,0 +1,11 @@
+node_modules/
+allure-results/
+allure-report/
+package-lock.json
+videos/
+screenshots/
+.DS_Store
+**/.DS_Store
+test/
+cucumber-report.html
+cucumber-messages.ndjson

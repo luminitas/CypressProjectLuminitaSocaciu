@@ -1,0 +1,73 @@
+name: Cypress + Allure Report
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # 🔹 1. Run Cypress tests
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    container:
+      image: cypress/browsers:node-20.11.0-chrome-120-ff-120
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Upload screenshots/videos (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+
+  # 🔹 2. Generate Allure report
+  allure-report:
+    runs-on: ubuntu-latest
+    needs: cypress-run
+
+    container:
+      image: openjdk:17-jdk-slim
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download Allure results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Install Allure CLI
+        run: |
+          apt-get update
+          apt-get install -y wget unzip
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.zip
+          unzip allure-2.27.0.zip -d /opt/
+          ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
+
+      - name: Generate Allure report
+        run: allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
